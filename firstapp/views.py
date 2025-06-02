@@ -9,3 +9,10 @@ def index(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def contact(request):
+    if request.methos == 'POST':
+        
+        form = ContactForm(request.POST)
+    
+    return render(request, 'contact.html')
