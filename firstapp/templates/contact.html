@@ -8,28 +8,7 @@
             <div class="col-6 shadow p-4">
                 <form action="" method="post">
                     {% csrf_token %}
-                    <div class="row mb-3">
-                       <div class="col ">
-                      <input type="text" class="form-control" name="name" placeholder="Name">
-                      </div>
-                    <div class="col">
-                    
-                       <input type="text" class="form-control" name="phone" placeholder="Phone">
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col ">
-                      <input type="text" class="form-control" name="email" placeholder="E-mail">
-                      </div>
-                    <div class="col">
-                       <input type="text" class="form-control" name="subject" placeholder="Subject">
-                    </div>
-                 </div>
-                 <div class="row">
-                    <div class="col ">
-                      <textarea name="Message" class="form-control" row="5" placeholder="Message"></textarea> 
-                    </div>
-                    </div>
+                    {{ form }}
                     <button type="submit" class="btn btn-danger px-4">Send</button>
                 </form>
             </div>

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from firstapp.forms import ContactForm
 from django.contrib import messages
+from firstapp.models import Contact
 
 # Create your views here.
 def index(request):
@@ -25,4 +26,12 @@ def contact(request):
             messages.error(request,'Invalid date.')
             return redirect('contact')
     
-    return render(request,'contact.html')
+    form = ContactForm()
+    
+    return render(request,'contact.html', {'form': form})
+
+
+def contact_list(request):
+    contacts = Contact.objects.all()
+    print(contacts)
+    return render(request, 'contact_list',{'contacts':contacts})
