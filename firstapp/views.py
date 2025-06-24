@@ -33,5 +33,9 @@ def contact(request):
 
 def contact_list(request):
     contacts = Contact.objects.all()
-   
     return render(request, 'contact_list.html', {'contacts':contacts})
+
+def contact_delete(request, pk=None):
+    contacts = Contact.objects.get(pk=pk)
+    contact.delete()
+    return redirect('contact_list')

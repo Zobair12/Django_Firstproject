@@ -6,7 +6,7 @@
 <section id="contact">
     <div class="container">
         <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-md-8 col-lg-8">
+            <div class="col-12 col-md-10 col-lg-12">
                 <table class="table">
                     <thead>
                         <tr>
@@ -20,10 +20,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for c in contact_list %}
-                        {% empty %}
-                        <p>No contact data available.</p>
-                        {% endfor %}
+                        {% for c in contacts %}
+                        
                         <tr>
                             <th scope="row">{{ c.pk }}</th>
                             <td>{{ c.name }}</td>
@@ -35,11 +33,13 @@
                                 <p class="d-inline-flex gap-1">
                                     <a href="#" class="btn" role="button" data-bs-toggle="button">View</a>
                                     <a href="#" class="btn" role="button" data-bs-toggle="button" aria-pressed="true">Edit</a>
-                                    <a href="#" class="btn" role="button" data-bs-toggle="button">Delete</a>
+                                    <a href="{% url 'contact_delete' c.pk %} " class="btn" role="button" data-bs-toggle="button">Delete</a>
                                 </p>
                             </td>
                         </tr>
-                        
+                        {% empty %}
+                        <p>No contact data available.</p>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
