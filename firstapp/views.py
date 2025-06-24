@@ -33,5 +33,5 @@ def contact(request):
 
 def contact_list(request):
     contacts = Contact.objects.all()
-    print(contacts)
-    return render(request, 'contact_list',{'contacts':contacts})
+   
+    return render(request, 'contact_list.html', {'contacts':contacts})

@@ -1,2 +1,49 @@
 {% extends "base.html" %}
 {% load static %}
+
+
+{% block content %}
+<section id="contact">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-8 col-lg-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Sumject</th>
+                            <th scope="col">Message</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in contact_list %}
+                        {% empty %}
+                        <p>No contact data available.</p>
+                        {% endfor %}
+                        <tr>
+                            <th scope="row">{{ c.pk }}</th>
+                            <td>{{ c.name }}</td>
+                            <td>{{ c.phone }}</td>
+                            <td>{{ c.email }}</td>
+                            <td>{{ c.subject }}</td>
+                            <td>{{ c.message }}</td>
+                            <td>
+                                <p class="d-inline-flex gap-1">
+                                    <a href="#" class="btn" role="button" data-bs-toggle="button">View</a>
+                                    <a href="#" class="btn" role="button" data-bs-toggle="button" aria-pressed="true">Edit</a>
+                                    <a href="#" class="btn" role="button" data-bs-toggle="button">Delete</a>
+                                </p>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
