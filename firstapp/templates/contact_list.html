@@ -7,16 +7,17 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-md-10 col-lg-12">
-                <table class="table">
+                <table class="table caption-top table-bordered">
+                    <caption class="fs-4 fw-bolder my-4 text-success">Contact List</caption>
                     <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">Sumject</th>
-                            <th scope="col">Message</th>
-                            <th scope="col">Actions</th>
+                        <tr class="">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>E-mail</th>
+                            <th>Sumject</th>
+                            <th>Message</th>
+                            <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,16 +30,18 @@
                             <td>{{ c.email }}</td>
                             <td>{{ c.subject }}</td>
                             <td>{{ c.message }}</td>
-                            <td>
-                                <p class="d-inline-flex gap-1">
-                                    <a href="#" class="btn">View</a>
-                                    <a href="{% url 'contact_edit' c.pk %}" class="btn">Edit</a>
-                                    <a href="{% url 'contact_delete' c.pk %}" class="btn" >Delete</a>
-                                </p>
+                            <td class="text-center">
+                                
+                                <a href="#" class="text-primary"><i class="fa-solid fa-eye"></i></a>
+                                <a href="{% url 'contact_edit' c.pk %}" class="text-info mx-2"><i class="fa-regular fa-pen-to-square"></i></a>
+                                <a href="{% url 'contact_delete' c.pk %}" class="text-danger" ><i class="fa-regular fa-trash-can"></i></a>
+                                
                             </td>
                         </tr>
                         {% empty %}
-                        <p>No contact data available.</p>
+                        <tr>
+                            <td colspan="7" class="text-center">No contact data available</td>
+                        </tr>
                         {% endfor %}
                     </tbody>
                 </table>
