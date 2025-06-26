@@ -31,9 +31,9 @@
                             <td>{{ c.message }}</td>
                             <td>
                                 <p class="d-inline-flex gap-1">
-                                    <a href="#" class="btn" role="button" data-bs-toggle="button">View</a>
-                                    <a href="#" class="btn" role="button" data-bs-toggle="button" aria-pressed="true">Edit</a>
-                                    <a href="{% url 'contact_delete' c.pk %} " class="btn" role="button" data-bs-toggle="button">Delete</a>
+                                    <a href="#" class="btn">View</a>
+                                    <a href="{% url 'contact_edit' c.pk %}" class="btn">Edit</a>
+                                    <a href="{% url 'contact_delete' c.pk %}" class="btn" >Delete</a>
                                 </p>
                             </td>
                         </tr>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from firstapp.forms import ContactForm
 from django.contrib import messages
 from firstapp.models import Contact
@@ -37,5 +37,20 @@ def contact_list(request):
 
 def contact_delete(request, pk=None):
     contacts = Contact.objects.get(pk=pk)
-    contact.delete()
+    contacts.delete()
     return redirect('contact_list')
+
+def contact_edit(request, pk=None):
+    contact = Contact.objects.get(pk=pk)
+    if request.method == "POST":
+        form = ContactForm(instance=contact, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contact_list')
+        
+        else:
+            print('Form is invalid.')
+
+    form = ContactForm(instance=contact)
+
+    return render(request, 'contact.html', {'form':form})
