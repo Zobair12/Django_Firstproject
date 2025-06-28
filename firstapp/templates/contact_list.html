@@ -7,8 +7,8 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-md-10 col-lg-12">
-                <table class="table caption-top table-bordered">
-                    <caption class="fs-4 fw-bolder my-4 text-success">Contact List</caption>
+                <table class="table table-bordered">
+                    <caption class="fw-bolder my-3">Contact List</caption>
                     <thead>
                         <tr class="">
                             <th>ID</th>
@@ -29,7 +29,7 @@
                             <td>{{ c.phone }}</td>
                             <td>{{ c.email }}</td>
                             <td>{{ c.subject }}</td>
-                            <td>{{ c.message }}</td>
+                            <td>{{ c.message|truncatechars_html:5 }}</td>
                             <td class="text-center">
                                 
                                 <a href="#" class="text-primary"><i class="fa-solid fa-eye"></i></a>

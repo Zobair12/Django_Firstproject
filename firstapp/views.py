@@ -38,6 +38,7 @@ def contact_list(request):
 def contact_delete(request, pk=None):
     contacts = Contact.objects.get(pk=pk)
     contacts.delete()
+    messages.add_message(request, messages.SUCCESS, "Contact successfully deleted!.")
     return redirect('contact_list')
 
 def contact_edit(request, pk=None):
