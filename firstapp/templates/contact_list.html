@@ -8,7 +8,20 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-md-10 col-lg-12">
                 <table class="table table-bordered">
-                    <caption class="fw-bolder my-3">Contact List</caption>
+                    <div class="row">
+                        <div class="col-4">
+                            <h5 class="fw-bolder my-3">Contact List</h5>
+                        </div>
+                        <div class="col">
+                            {% if messages %}
+                                {% for message in messages %}
+                        <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %} role="alert">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                       {% endif %}
+                        </div>
+                    </div>
                     <thead>
                         <tr class="">
                             <th>ID</th>
