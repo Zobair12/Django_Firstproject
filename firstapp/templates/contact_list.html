@@ -45,7 +45,7 @@
                             <td>{{ c.message|truncatechars_html:5 }}</td>
                             <td class="text-center">
                                 
-                                <a href="#" class="text-primary"><i class="fa-solid fa-eye"></i></a>
+                                <a href="{% url 'contact_view' c.pk %}" class="text-primary"><i class="fa-solid fa-eye"></i></a>
                                 <a href="{% url 'contact_edit' c.pk %}" class="text-info mx-2"><i class="fa-regular fa-pen-to-square"></i></a>
                                 <a href="{% url 'contact_delete' c.pk %}" class="text-danger" ><i class="fa-regular fa-trash-can"></i></a>
                                 

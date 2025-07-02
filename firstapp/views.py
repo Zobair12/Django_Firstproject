@@ -55,3 +55,7 @@ def contact_edit(request, pk=None):
     form = ContactForm(instance=contact)
 
     return render(request, 'contact.html', {'form':form})
+
+def contact_view(request, pk=None):
+    contact = Contact.objects.get(pk=pk)
+    return render(request, 'contact_view.html', {'contact':contact})

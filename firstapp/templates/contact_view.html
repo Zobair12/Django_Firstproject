@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% comment %}{% load crispy_forms_tags %}{% endcomment %}
+
+
+{% block content %}
+<section id="contact">
+    <div class="contact">
+        <div class="vh-100 row justify-content-center align-items-center">
+            <div class="col-8 shadow p-3 rounded">
+                <div class="row">
+                    <div class="col">
+                        <p>Name</p>
+                    </div>
+                    <div class="col">
+                        {{ contact.name }}
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Phone</p>
+                    </div>
+                    <div class="col">
+                        {{ contact.phone }}
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>E-mail</p>
+                    </div>
+                    <div class="col">
+                        {{ contact.email }}
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Subject</p>
+                    </div>
+                    <div class="col">
+                        {{ contact.subject }}
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Message</p>
+                    </div>
+                    <div class="col">
+                        {{ contact.message }}
+
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="/" class="btn btn-primary">Back To Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
