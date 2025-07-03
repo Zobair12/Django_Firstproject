@@ -59,3 +59,11 @@ def contact_edit(request, pk=None):
 def contact_view(request, pk=None):
     contact = Contact.objects.get(pk=pk)
     return render(request, 'contact_view.html', {'contact':contact})
+
+
+def contact_search(request):
+    if request.method == 'GET':
+        query = request.GET.get('q', None)
+
+        contacts = Contact.objects.filter(name__icontains=query)
+    return render(request, 'contact_search.html', {'contacts':contacts})

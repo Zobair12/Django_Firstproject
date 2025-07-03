@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<section id="contact">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-10 col-lg-12">
+                <table class="table table-bordered">
+                    <div class="row">
+                        <div class="col-4">
+                            <h5 class="fw-bolder my-3">Contact List</h5>
+                        </div>
+                        <div class="col">
+                            {% if messages %}
+                                {% for message in messages %}
+                        <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %} role="alert">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                       {% endif %}
+                        </div>
+                    </div>
+                    <thead>
+                        <tr class="">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>E-mail</th>
+                            <th>Sumject</th>
+                            <th>Message</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in contacts %}
+                        
+                        <tr>
+                            <th scope="row">{{ c.pk }}</th>
+                            <td>{{ c.name }}</td>
+                            <td>{{ c.phone }}</td>
+                            <td>{{ c.email }}</td>
+                            <td>{{ c.subject }}</td>
+                            <td>{{ c.message|truncatechars_html:5 }}</td>
+                            <td class="text-center">
+                                
+                                <a href="{% url 'contact_view' c.pk %}" class="text-primary"><i class="fa-solid fa-eye"></i></a>
+                                <a href="{% url 'contact_edit' c.pk %}" class="text-info mx-2"><i class="fa-regular fa-pen-to-square"></i></a>
+                                <a href="{% url 'contact_delete' c.pk %}" class="text-danger" ><i class="fa-regular fa-trash-can"></i></a>
+                                
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="7" class="text-center">No contact data available</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
