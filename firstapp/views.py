@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect, HttpResponse
 from firstapp.forms import ContactForm
 from django.contrib import messages
 from firstapp.models import Contact
+from django.db.models import Q
+from .models import Contact
 
 # Create your views here.
 def index(request):
 
-   name = "MD ZOBAIR AHMED"
-
-   return render(request, 'index.html', {'name': name})
+   return render(request, 'index.html', )
 
 def about(request):
     return render(request, 'about.html')
@@ -65,5 +65,13 @@ def contact_search(request):
     if request.method == 'GET':
         query = request.GET.get('q', None)
 
-        contacts = Contact.objects.filter(name__icontains=query)
+        if query:
+            contacts = Contact.objects.filter(
+                Q(name__icontains=query) |
+                Q(email__icontains=query) |
+                Q(phone__icontains=query) |
+                Q(subject__icontains=query) |
+                Q(message__icontains=query)
+            )
+            
     return render(request, 'contact_search.html', {'contacts':contacts})
