@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load humanize %}
 
 {% block content %}
 <section id="contact">
@@ -28,6 +28,7 @@
                             <th>Name</th>
                             <th>Phone</th>
                             <th>E-mail</th>
+                            <th>Timestamp</th>
                             <th>Sumject</th>
                             <th>Message</th>
                             <th class="text-center">Actions</th>
@@ -41,8 +42,9 @@
                             <td>{{ c.name }}</td>
                             <td>{{ c.phone }}</td>
                             <td>{{ c.email }}</td>
-                            <td>{{ c.subject }}</td>
-                            <td>{{ c.message|truncatechars_html:5 }}</td>
+                            <td>{{ c.created_at|naturaltime }}</td>
+                            <td>{{ c.subject|truncatechars_html:15 }}</td>
+                            <td>{{ c.message|truncatechars_html:15 }}</td>
                             <td class="text-center">
                                 
                                 <a href="{% url 'contact_view' c.pk %}" class="text-primary"><i class="fa-solid fa-eye"></i></a>
