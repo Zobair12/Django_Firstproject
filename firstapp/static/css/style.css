@@ -6,3 +6,8 @@ h1{
     font-style: italic;
     text-align: center;
 }
+
+
+.bg-image {
+    width: 100%;
+}

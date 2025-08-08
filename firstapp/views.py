@@ -75,3 +75,4 @@ def contact_search(request):
             )
             
     return render(request, 'contact_search.html', {'contacts':contacts})
+
